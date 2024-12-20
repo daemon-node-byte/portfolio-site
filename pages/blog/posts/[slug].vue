@@ -1,8 +1,7 @@
 <script setup>
 import { useAsyncData } from 'nuxt/app';
-
 const route = useRoute();
-console.log("🚀 ~ route:", route)
+
 const { data: doc } = await useAsyncData('content', () =>
   queryContent('blog/posts').where({ slug: route.params.slug }).findOne()
 );

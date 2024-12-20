@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<UContainer>
+<UContainer class="font-custom">
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
