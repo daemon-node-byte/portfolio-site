@@ -8,14 +8,15 @@ export default defineNuxtConfig({
   ui: {
     global: true,
   },
-  content: {
+  content: {         
     highlight: {
       theme: 'monokai',
       langs: ['javascript', 'typescript', 'json', 'html', 'css', 'scss', 'markdown', 'bash', 'shell', 'yaml', 'xml', 'python', 'java', 'csharp', 'php', 'ruby', 'go', 'rust', 'swift', 'kotlin', 'dart', 'groovy', 'powershell', 'sql', 'c']
     },
     markdown: {
       remarkPlugins: ['remark-gfm'],
-      rehypePlugins: [],
+
+      // rehypePlugins: ['rehype-meta', 'rehype-document', 'rehype-infer-reading-time-meta', 'rehype-parse', 'rehype-stringify', 'rehype-slug'],
       
     }
   },

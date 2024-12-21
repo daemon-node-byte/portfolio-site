@@ -3,6 +3,31 @@ import { inject } from '@vercel/analytics'
 const viewCV = () => {
   window.open('/resources/JoshMcLain_SoftwareEngineer_CV.pdf', '_blank')
 }
+useSeoMeta({
+  title: 'Josh McLain - Software Engineer',
+  description: 'Fullstack web developer portfolio',
+  ogTitle: 'Josh McLain - Software Engineer',
+  ogDescription: 'Fullstack web developer portfolio',
+  ogImage: '/images/social-media-screen.png',
+  ogUrl: 'https://www.joshmclain.com',
+  twitterTitle: 'Josh McLain - Software Engineer',
+  twitterDescription: 'Fullstack web developer portfolio',
+  twitterImage: '[twitter:image]',
+  twitterCard: 'summary_large_image'
+})
+
+useHead({
+  htmlAttrs: {
+    lang: 'en'
+  },
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/icon',
+      href: '/favicon.ico'
+    }
+  ]
+})
 </script>
 <template>
   <main class="">

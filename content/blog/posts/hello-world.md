@@ -1,8 +1,8 @@
 ---
 title: "Hello World!"
-date: "2024-10-01"
+date: "10-01-2024"
 description: "This is my first blog post and I thought it would be fitting to write about the history of \"Hello, World!\" in software development. Many of us have written this simple program when learning a new programming language, but do you know where it originated from? In this post, we'll explore the history of \"Hello, World!\" and why it has become a tradition in software development."
-category: "general"
+category: "Misc"
 cover: "/images/blog/pexels-lastly-699122.jpg"
 featured: true
 slug: "hello-world"
