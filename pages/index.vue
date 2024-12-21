@@ -1,5 +1,8 @@
 <script setup>
 import { inject } from '@vercel/analytics'
+const viewCV = () => {
+  window.open('/resources/JoshMcLain_SoftwareEngineer_CV.pdf', '_blank')
+}
 </script>
 <template>
   <main class="">
@@ -31,7 +34,7 @@ import { inject } from '@vercel/analytics'
           professional experience and a lifetime in the related fields.</p>
         
           <p>Self taught, motivated and passionate. I love what I do, it's more than a career.</p>
-          <UButton label="Download Resume" variant="outline" icon="i-ri-file-download-fill" trailing class="mt-4"/>
+          <UButton label="View Resume" variant="outline" icon="i-ri-file-download-fill" trailing class="mt-4" @click="viewCV"/>
           <div class="space-x-6 mt-6">
             <ULink to="https://github.com/daemon-node-byte" target="_blank">
               <UIcon name="i-octicon-logo-github-24" class="text-3xl" />
