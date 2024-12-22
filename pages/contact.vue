@@ -28,7 +28,6 @@ const state = reactive<Schema>({
 })
 
 async function submitForm(event: FormSubmitEvent<Schema>) {
-  console.log("🚀 ~ submitForm ~ event:", event)
   try {
 
     const formBody = await schema.parseAsync(state)
@@ -44,6 +43,7 @@ async function submitForm(event: FormSubmitEvent<Schema>) {
     } 
  
   } catch (error) {
+    toast.add({ title: 'Error', description: 'Something went wrong. Please try again.' }) 
     throw error
   }
 }

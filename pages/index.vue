@@ -3,16 +3,17 @@ import { inject } from '@vercel/analytics'
 const viewCV = () => {
   window.open('/resources/JoshMcLain_SoftwareEngineer_CV.pdf', '_blank')
 }
+const runtimeConfig = useRuntimeConfig()
 useSeoMeta({
   title: 'Josh McLain - Software Engineer',
-  description: 'Fullstack web developer portfolio',
+  description: 'Experienced software engineer specializing in fullstack web development. View my portfolio and professional experience.',
   ogTitle: 'Josh McLain - Software Engineer',
-  ogDescription: 'Fullstack web developer portfolio',
-  ogImage: '/images/social-media-screen.png',
-  ogUrl: 'https://www.joshmclain.com',
+  ogDescription: 'Experienced software engineer specializing in fullstack web development. View my portfolio and professional experience.',
+  ogImage: `${runtimeConfig.public.envDomain}/images/logo.png`,
+  ogUrl: `${runtimeConfig.public.envDomain}`,
   twitterTitle: 'Josh McLain - Software Engineer',
-  twitterDescription: 'Fullstack web developer portfolio',
-  twitterImage: '[twitter:image]',
+  twitterDescription: 'Experienced software engineer specializing in fullstack web development. View my portfolio and professional experience.',
+  twitterImage: `${runtimeConfig.public.envDomain}/images/logo.png`,
   twitterCard: 'summary_large_image'
 })
 
@@ -28,17 +29,18 @@ useHead({
     }
   ]
 })
+inject();
 </script>
 <template>
   <main class="">
-    {{  inject() }}
+    
     <div class="-mt-2 text-center min-h-screen flex flex-col justify-center items-center">
       <h1 class="text-4xl font-bold tracking-wider">Josh<span class="text-primary">McLain</span></h1>
       <p class="text-xs leading-8">I'm a software engineer, specializing in fullstack web development</p>
       <UButton label="Learn more" variant="outline" class="mt-5" size="lg" icon="i-ei-chevron-right" :trailing="true" to="#about"/>
     </div>
     <div id="about" class="min-h-screen w-full flex flex-col justify-center items-center">
-      <img src="/public/images/172-dQGDXGzJY5w.jpeg" alt="Josh McLain" class="rounded-full w-40 h-40 mb-6 border-primary border-4" />
+      <img src="/images/172-dQGDXGzJY5w.jpeg" alt="Josh McLain" class="rounded-full w-40 h-40 mb-6 border-primary border-4" />
       <UDivider class="w-4/5 my-3" size="md" label="A little about me" />
       <article class="text-center text-sm max-w-screen-md leading-5 space-y-4">
       <p>A complex problem-solver with analytical and driven mindset.
