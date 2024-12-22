@@ -28,11 +28,23 @@ const state = reactive<Schema>({
 })
 
 async function submitForm(event: FormSubmitEvent<Schema>) {
+  console.log("🚀 ~ submitForm ~ event:", event)
   try {
-    await schema.parseAsync(state)
-    console.log('Form submitted:', state)
-  } catch (error) {
 
+    const formBody = await schema.parseAsync(state)
+    const { data, status } = await useFetch('/api/email', {
+      method: 'POST',
+      body: JSON.stringify(formBody)
+    })
+    if(data) {
+      toast.add({ title: 'Success', description: 'Message sent successfully' })
+    }
+    if (status && +status >= 400) {
+      toast.add({ title: 'Error', description: `${status} - An error occurred while sending your message` })
+    } 
+ 
+  } catch (error) {
+    throw error
   }
 }
 
@@ -48,23 +60,21 @@ const formFields = ref<FormField[]>([
 <template >
   <div>
     <UForm :schema="schema" :state="state" @submit="submitForm" class="max-w-[500px] space-y-4 mx-auto pt-14">
-      <template v-for="field in formFields">
+      <template v-for="field in formFields" :key="field.name">
 
         <template v-if="field.name === 'message'">
           <UFormGroup :label="field.label" :name="field.name" :hint="`${state[field.name as keyof Schema].length || 0} / 750`">
-            <UTextarea v-model="state[field.name as keyof Schema]" :placeholder="field.placeholder" :rows="12" />
+            <UTextarea color="gray" v-model="state[field.name as keyof Schema]" :placeholder="field.placeholder" :rows="12" />
           </UFormGroup>
         </template>
         <template v-else>
 
         <UFormGroup :label="field.label" :name="field.name">
-          <UInput v-model="state[field.name as keyof Schema]" :icon="field.icon" :placeholder="field.placeholder" size="md" />
+          <UInput color="gray" v-model="state[field.name as keyof Schema]" :icon="field.icon" :placeholder="field.placeholder" size="md" />
         </UFormGroup>
           </template>
         </template>
-        <div>
           <UButton type="submit" class="mt-4" size="lg" icon="i-material-symbols-send" trailing block>Send</UButton>
-        </div>
   </UForm>
 </div>
 </template>

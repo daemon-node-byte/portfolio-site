@@ -16,6 +16,7 @@
     "@vercel/analytics": "^1.4.1",
     "clsx": "^2.1.1",
     "nuxt": "^3.14.1592",
+    "postmark": "^4.0.5",
     "rehype-meta": "^4.0.1",
     "remark-gfm": "^4.0.0",
     "vue": "latest",

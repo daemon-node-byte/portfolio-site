@@ -5,7 +5,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/content', '@nuxt/ui'],
   runtimeConfig: {
-    mailApiKey: process.env.MAIL_API_KEY,
+    mailApiKey: process.env.EMAIL_API_KEY,
+    ownerEmail: process.env.OWNER_EMAIL,
     public: {
       envDomain: process.env.ENV_DOMAIN,
     }
