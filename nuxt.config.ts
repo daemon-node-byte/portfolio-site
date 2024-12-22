@@ -4,6 +4,12 @@ export default defineNuxtConfig({
   pages: true,
   devtools: { enabled: true },
   modules: ['@nuxt/content', '@nuxt/ui'],
+  runtimeConfig: {
+    mailApiKey: process.env.MAIL_API_KEY,
+    public: {
+      envDomain: process.env.ENV_DOMAIN,
+    }
+    },
   ssr: true,
   ui: {
     global: true,
@@ -15,7 +21,7 @@ export default defineNuxtConfig({
     },
     markdown: {
       remarkPlugins: ['remark-gfm'],
-
+      rehypePlugins: [],
       // rehypePlugins: ['rehype-meta', 'rehype-document', 'rehype-infer-reading-time-meta', 'rehype-parse', 'rehype-stringify', 'rehype-slug'],
       
     }
