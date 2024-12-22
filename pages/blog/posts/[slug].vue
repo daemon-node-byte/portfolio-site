@@ -2,16 +2,16 @@
 import { useAsyncData } from 'nuxt/app';
 const route = useRoute();
 
-const { data: doc } = await useAsyncData('content', () =>
+const { data } = await useAsyncData('content', () =>
   queryContent('blog/posts').where({ slug: route.params.slug }).findOne()
 );
 </script>
 
 <template>
   <main class="pt-14 h-full">
-    <article id="content-container" v-if="doc">
-      <img :src="doc.cover" />
-      <h1 id="content-title">{{ doc.title }}</h1>
+    <article id="content-container" v-if="data">
+      <img :src="data.cover" />
+      <h1 id="content-title">{{ data.title }}</h1>
         <ContentDoc id="content" />
     </article>
   </main>
