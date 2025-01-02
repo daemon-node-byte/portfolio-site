@@ -14,10 +14,10 @@ const links = [[
   label: 'Blog',
   to: '/blog',
 },
-{
-  label: 'Projects',
-  to: '/projects',
-},
+// {
+//   label: 'Projects',
+//   to: '/projects',
+// },
 {
   label: 'Contact',
   to: '/contact',

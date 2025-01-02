@@ -2,7 +2,7 @@ export default defineAppConfig({
   ui: {
     // strategy: 'override',
     primary: 'indigo',
-    gray: 'zinc',
+    gray: 'neutral',
     notifications: {
       position: 'top-0 end-0'
     },
