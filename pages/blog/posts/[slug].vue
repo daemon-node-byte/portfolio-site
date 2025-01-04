@@ -5,6 +5,34 @@ const route = useRoute();
 const { data } = await useAsyncData('content', () =>
   queryContent('blog/posts').where({ slug: route.params.slug }).findOne()
 );
+console.log(data)
+const runtimeConfig = useRuntimeConfig()
+useSeoMeta({
+  title: `Josh McLain - Blog Article - ${data.value.title}`,
+  description: `${data.value.description}`,
+  ogTitle: `Josh McLain - Blog Article - ${data.value.title}`,
+  ogDescription: `${data.value.description}`,
+  ogImage: `${runtimeConfig.public.envDomain}/images/logo.png`,
+  ogUrl: `${runtimeConfig.public.envDomain}`,
+  twitterTitle: `Josh McLain - Blog Article - ${data.value.title}`,
+  twitterDescription: `${data.value.description}`,
+  twitterImage: `${runtimeConfig.public.envDomain}/images/logo.png`,
+  twitterCard: 'summary_large_image'
+})
+
+
+useHead({
+  htmlAttrs: {
+    lang: 'en'
+  },
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: '/images/favico/favicon.ico'
+    }
+  ]
+})
 </script>
 
 <template>

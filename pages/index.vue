@@ -17,6 +17,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
+
 useHead({
   htmlAttrs: {
     lang: 'en'
@@ -30,17 +31,25 @@ useHead({
   ]
 })
 inject();
+onMounted(() => {
+  useGSAP()
+})
+const smoothScroll = (e) => {
+  e.preventDefault();
+  const about = document.getElementById('about')
+  about.scrollIntoView({ behavior: 'smooth',  })
+}
 </script>
 <template>
   <main class="">
     
     <div class="-mt-2 text-center min-h-screen flex flex-col justify-center items-center">
-      <h1 class="text-4xl font-bold tracking-wider">Josh<span class="text-primary">McLain</span></h1>
-      <p class="text-xs leading-8">I'm a software engineer, specializing in fullstack web development</p>
-      <UButton label="Learn more" variant="outline" class="mt-5" size="lg" icon="i-ei-chevron-right" :trailing="true" to="#about"/>
+      <h1 v-gsap.from.delay-500="{ opacity: 0, y: -32 }" class="text-4xl font-bold tracking-wider">Josh<span class="text-primary">McLain</span></h1>
+      <p v-gsap.animateText.slow.delay-1000 id="slogan" class="text-xs h-[18px] leading-8 inline-block">I'm a software engineer, specializing in fullstack web development.</p>
+      <UButton label="Learn more" variant="outline" class="mt-5" size="lg" icon="i-ei-chevron-right" @click="smoothScroll" :trailing="true" to="#"/>
     </div>
     <div id="about" class="min-h-screen w-full flex flex-col justify-center items-center">
-      <img src="/images/172-dQGDXGzJY5w.jpeg" alt="Josh McLain" class="rounded-full w-40 h-40 mb-6 border-primary border-4" />
+      <img v-gsap.whenVisible.from="{ opacity: 0, x: -52, start: 'bottom 90%', end: 'bottom 40%' }" src="/images/172-dQGDXGzJY5w.jpeg" alt="Josh McLain" class="rounded-full w-40 h-40 mb-6 border-primary border-4" />
       <UDivider class="w-4/5 my-3" size="md" label="A little about me" />
       <article class="text-center text-sm max-w-screen-md leading-5 space-y-4">
       <p>A complex problem-solver with analytical and driven mindset.
@@ -60,7 +69,7 @@ inject();
         <p>5 years of
           professional experience and a lifetime in the related fields.</p>
         
-          <p>Self taught, motivated and passionate. I love what I do, it's more than a career.</p>
+          <p>Self taught, motivated and passionate. It's more than a career, I love what I do.</p>
           <UButton label="View Resume" variant="outline" icon="i-ri-file-download-fill" trailing class="mt-4" @click="viewCV"/>
           <div class="space-x-6 mt-6">
             <ULink to="https://github.com/daemon-node-byte" target="_blank">

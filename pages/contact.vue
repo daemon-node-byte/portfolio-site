@@ -2,6 +2,34 @@
 import { z } from 'zod'
 import type { FormSubmitEvent } from '#ui/types'
 
+const runtimeConfig = useRuntimeConfig()
+useSeoMeta({
+  title: 'Josh McLain - Software Engineer - Contact',
+  description: 'Experienced software engineer specializing in fullstack web development. Contact me about solutions for your project.',
+  ogTitle: 'Josh McLain - Software Engineer - Contact',
+  ogDescription: 'Experienced software engineer specializing in fullstack web development. Contact me about solutions for your project.',
+  ogImage: `${runtimeConfig.public.envDomain}/images/logo.png`,
+  ogUrl: `${runtimeConfig.public.envDomain}`,
+  twitterTitle: 'Josh McLain - Software Engineer - Contact',
+  twitterDescription: 'Experienced software engineer specializing in fullstack web development. Contact me about solutions for your project.',
+  twitterImage: `${runtimeConfig.public.envDomain}/images/logo.png`,
+  twitterCard: 'summary_large_image'
+})
+
+
+useHead({
+  htmlAttrs: {
+    lang: 'en'
+  },
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: '/images/favico/favicon.ico'
+    }
+  ]
+})
+
 const toast = useToast()
 
 const schema = z.object({
