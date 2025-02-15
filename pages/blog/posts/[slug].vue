@@ -39,8 +39,8 @@ useHead({
   <main class="pt-14 h-full">
     <article id="content-container" v-if="data">
       <img :src="data.cover" />
-      <h1 id="content-title">{{ data.title }}</h1>
-        <ContentDoc id="content" />
+      <!-- <h1 id="content-title">{{ data.title }}</h1> -->
+      <ContentDoc id="content" />
     </article>
   </main>
 </template>
@@ -51,21 +51,26 @@ useHead({
   margin: 0 auto;
   padding: 1rem;
 }
+
 #content pre {
   margin: 24px 36px;
   border: 1px solid #eaeaea;
   padding: 16px;
 }
-#content h1, #content-title {
+
+#content h1,
+#content-title {
   font-size: 2rem;
   margin: 1rem 0;
   font-weight: bolder;
 }
+
 #content h2 {
   font-size: 1.5rem;
   margin: 1rem 0;
   font-weight: bold;
 }
+
 #content h3 {
   font-size: 1.25rem;
   margin: 1rem 0;
@@ -83,7 +88,7 @@ useHead({
 }
 
 #content li {
- padding: 12px 0;
+  padding: 12px 0;
 }
 
 #content strong {
