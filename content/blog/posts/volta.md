@@ -3,7 +3,7 @@ title: "Introducing Volta: A New JavaScript Tool"
 date: "10-13-2024"
 description: "Volta is a new tool for JavaScript developers that aims to make managing JavaScript projects easier. In this post, we'll take a look at what Volta is, how it works, and how you can get started using it in your own projects."
 category: "Developer Tools"
-cover: "/images/blog/pexels-danny-meneses-340146-943096.jpg"
+cover: "/images/blog/volta.png"
 featured: false
 slug: "volta"
 ---
