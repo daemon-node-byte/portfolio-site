@@ -35,7 +35,7 @@ useHead({
 
 <template>
 
-  <main class="pt-14 max-w-[1200px] h-full">>
+  <main class="pt-14 max-w-[1200px] h-full">
     <NuxtLayout>
 
 
